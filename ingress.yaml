@@ -1,0 +1,37 @@
+# This is your Editor pane.
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: frontend-ingress
+spec:
+    rules:
+    - http:
+        paths:
+        - path: /count
+          backend:
+            serviceName: crudapp-svc
+            servicePort: 8443
+        - path: /All
+          backend:
+            serviceName: crudapp-svc
+            servicePort: 8443
+        - path: /lastlogintime
+          backend:
+            serviceName: crudapp-svc
+            servicePort: 8443
+        - path: /search
+          backend:
+            serviceName: crudapp-svc
+            servicePort: 8443
+        - path: /upload
+          backend:
+            serviceName: crudapp-svc
+            servicePort: 8443
+        - path: /login
+          backend:
+            serviceName: crudapp-svc
+            servicePort: 8443
+        - path: /
+          backend:
+            serviceName: webapp-svc
+            servicePort: 80
