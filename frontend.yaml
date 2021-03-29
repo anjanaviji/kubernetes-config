@@ -1,0 +1,33 @@
+# This is your Editor pane.
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-svc
+  labels:
+    app: webapp
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: webapp
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: webapp
+        image: index.docker.io/vishnurapps/dicomfrontend:1.0
+        ports:
+        - containerPort: 80
